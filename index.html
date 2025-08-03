@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dr. Isaac Bastos - Psicólogo Clínico CRP 06/90882. Terapia individual e de casal, atendimento presencial e online para ansiedade, depressão e bem-estar em São Paulo. Agende sua consulta!">
     <title>Dr. Isaac Bastos - Psicologia & Bem-estar</title>
-    <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="logo-aba.png" type="image/png" sizes="32x32">
     
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -325,12 +325,13 @@
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#inicio" class="flex items-center">
-                <img src="logo.png" alt="Dr. Isaac Bastos - Logo" class="h-12 mr-3">
+                <img src="floral-sem-fundo.png" alt="Dr. Isaac Bastos - Logo" class="h-12 mr-3">
                 <span class="text-xl font-playfair font-bold text-theme-green-dark">Dr. Isaac Bastos</span>
             </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#sobre" class="hover:text-theme-green-dark transition-colors">Sobre mim</a>
                 <a href="#servicos" class="hover:text-theme-green-dark transition-colors">Atendimento</a>
+                <a href="#reflexoes" class="hover:text-theme-green-dark transition-colors">Reflexões</a>
                 <a href="#depoimentos" class="hover:text-theme-green-dark transition-colors">Depoimentos</a>
                 <a href="#faq" class="hover:text-theme-green-dark transition-colors">FAQ</a>
                 <a href="#contato" class="hover:text-theme-green-dark transition-colors">Contato</a>
@@ -342,64 +343,89 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
             <a href="#sobre" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Sobre mim</a>
             <a href="#servicos" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Atendimento</a>
+            <a href="#reflexoes" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Reflexões</a>
             <a href="#depoimentos" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Depoimentos</a>
             <a href="#faq" class="block py-3 px-6 hover:bg-theme-beige transition-colors">FAQ</a>
             <a href="#contato" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Contato</a>
         </div>
     </header>
 
-    <section id="inicio" class="bg-theme-beige min-h-screen flex items-center">
-        <div class="container mx-auto px-6 py-16 md:py-24">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center">
-                    <img src="perfil.png" 
-                         alt="Dr. Isaac Bastos - Psicólogo Clínico" 
-                         class="rounded-lg w-full max-w-md mx-auto"
-                         loading="eager">
+<section id="inicio" class="bg-theme-beige min-h-screen flex items-center relative overflow-hidden">
+    <!-- Elemento floral decorativo -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-20">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-theme-green rounded-full mix-blend-multiply filter blur-xl"></div>
+        <div class="absolute bottom-20 right-20 w-40 h-40 bg-theme-gold rounded-full mix-blend-multiply filter blur-xl"></div>
+    </div>
+
+    <!-- Imagem floral adicional -->
+    <img src="floral.jpeg" alt="Elemento floral decorativo" class="absolute top-0 right-0 w-48 opacity-30">
+
+    <div class="container mx-auto px-6 py-16 md:py-24 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center order-2 md:order-1">
+                <img src="perfil.png" 
+                     alt="Dr. Isaac Bastos - Psicólogo Clínico" 
+                     class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover mx-auto border-4 border-theme-gold shadow-lg object-center"
+                     style="object-position: 50% 25%"
+                     loading="eager">
+            </div>
+            <div class="text-center md:text-left order-1 md:order-2">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-playfair text-theme-gold">ISAAC BASTOS</h2>
+                    <p class="text-lg text-theme-green-dark font-medium tracking-wider">PSICÓLOGO CLÍNICO | CRP 06/90882</p>
                 </div>
-                <div class="text-center md:text-left">
-                    <h1 class="font-playfair text-4xl md:text-5xl font-bold text-theme-green-dark leading-tight">
-                        Encontre seu Equilíbrio, Protagonize sua História.
-                    </h1>
-                    <p class="mt-4 text-lg text-theme-text">Psicólogo Clínico | CRP 06/90882</p>
-                    <p class="mt-6 text-xl max-w-xl mx-auto md:mx-0">
-                        Sua jornada para o autoconhecimento e bem-estar começa aqui. Vamos caminhar juntos.
-                    </p>
-                    <div class="flex justify-center md:justify-start mt-8">
-                        <a href="https://wa.me/5511991240997?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta."
-                           target="_blank"
-                           class="btn-whatsapp inline-flex items-center justify-center bg-theme-green text-white py-3 px-5 rounded-full font-semibold hover:bg-theme-green-dark transition-all shadow-lg w-full md:w-auto"
-                           id="main-whatsapp-btn">
-                            <span>Agende sua Consulta</span>
-                            <i data-lucide="whatsapp" class="w-6 h-6 ml-2"></i>
-                        </a>
-                    </div>
+                
+                <h1 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-theme-green-dark leading-tight mb-6">
+                    Descubra-se, Equilibre-se: Protagonize sua Essência!
+                </h1>
+                
+                <p class="text-xl text-theme-text italic mb-8">
+                    Sua jornada existencial começa aqui!
+                </p>
+                
+                <div class="flex justify-center md:justify-start">
+                    <a href="https://wa.me/5511991240997?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta."
+                       target="_blank"
+                       class="btn-whatsapp inline-flex items-center justify-center bg-theme-green text-white py-4 px-8 rounded-full font-semibold hover:bg-theme-green-dark transition-all shadow-lg transform hover:scale-105 w-full md:w-auto"
+                       id="main-whatsapp-btn">
+                        <span>Agende sua Consulta</span>
+                        <img src="WhatsApp.svg.webp" alt="WhatsApp" class="w-6 h-6 ml-2">
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="sobre" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Sobre mim</h2>
-                    <div class="text-theme-text leading-relaxed space-y-4">
-                        <p>Sou Isaac Bastos – Psicólogo e Mestre em Psicologia da Saúde pela Universidade Metodista de São Paulo. Sou uma pessoa apaixonada pelo que faço, que é: ajudar as pessoas nos seus processos de auto compreensão e autogestão emocional com vista à ampliação de bem-estar e melhor qualidade de vida.</p>
-                        <p>Trabalho há mais de 15 anos como Psicólogo Clínico e da Saúde, tanto na Clínica Particular como na Saúde Pública – voltada à Saúde Mental (UBSs e CAPs) – com o intuito de diminuir o sofrimento psíquico dos pacientes e de seus familiares, ajudando-os a ter uma vida mais saudável, produtiva e feliz.</p>
-                        <p>Minha prática, leituras, estudos e discussões com equipe multi (psiquiatras, psicólogos, terapeutas ocupacionais, assistentes sociais, enfermeiros, entre outros) ampliam minha experiência e me capacitam no tratamento e acompanhamento de pacientes que apresentam esquizofrenia, sintomas de depressão, ansiedade, transtorno obsessivo-compulsivo, transtorno afetivo bipolar, transtornos alimentares, entre outros.</p>
-                        <p>No presente, utilizo minha experiência para ajudar pacientes e familiares – de forma online – a enfrentar essas dificuldades emocionais e/ou psicológicas, ampliar sua resiliência, aumentar sua capacidade de resolução de conflitos, ampliar autonomia e reinserção social numa perspectiva de superação de medos e inseguranças.</p>
-                        <p>Se você chegou até aqui, está interessada/o em acompanhamento psicológico e/ou quer saber um pouco mais sobre meu trabalho, agende uma sessão via WhatsApp. Será um prazer atendê-lo/a.</p>
-                        <p class="font-semibold">Cordialmente,<br>
-                        Psicólogo Isaac Bastos</p>
+        <section id="sobre" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Sobre mim</h2>
+                        <div class="text-theme-text leading-relaxed space-y-4">
+                            <p>Sou Isaac Bastos – Psicólogo e Mestre em Psicologia da Saúde pela Universidade Metodista de São Paulo.</p>
+                            <p>Trabalho há mais de 16 anos como Psicólogo Clínico e da Saúde, tanto na Clínica Particular como na Saúde Pública.</p>
+                            <p>Utilizo minha experiência para ajudar pacientes e familiares – de forma online – a enfrentar essas dificuldades emocionais e/ou psicológicas.</p>
+                            <p>Se você chegou até aqui, está interessada/o em acompanhamento psicológico e/ou quer saber um pouco mais sobre meu trabalho, agende uma sessão via WhatsApp. Será um prazer atendê-lo/a.</p>
+                            <p class="font-semibold">Cordialmente,<br>Psicólogo Isaac Bastos</p>
+                        </div>
+                        <div class="mt-8">
+                            <a href="sobre-mim.html" 
+                            class="inline-flex items-center gap-2 bg-theme-green-dark text-white py-3 px-6 rounded-full font-semibold hover:bg-theme-green transition-all shadow-md">
+                                <span>Saiba Mais Sobre Mim</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="sobre-mim-sem-fundo.png" 
+                            alt="Dr. Isaac Bastos em seu consultório" 
+                            class="w-full max-w-md object-contain"
+                            loading="lazy">
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <img src="sobre-mim-sem-fundo.png" 
-                         alt="Dr. Isaac Bastos em seu consultório" 
-                         class="w-full object-contain"
-                         loading="lazy">
-                </div>
+            </div>
+        </section>
             </div>
         </div>
     </section>
@@ -462,7 +488,32 @@
         </div>
     </section>
 
-    <section id="depoimentos" class="py-16 md:py-24 bg-white">
+    <section id="reflexoes" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-theme-green mb-4">Pequenas Reflexões</h2>
+                <p class="text-lg text-theme-text max-w-2xl mx-auto">
+                    Inspirações para cultivar o bem-estar e o autoconhecimento no seu dia a dia.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-theme-beige p-8 rounded-lg shadow-sm border-l-4 border-theme-gold">
+                    <i data-lucide="quote" class="w-8 h-8 text-theme-gold mb-4 opacity-50"></i>
+                    <p class="text-theme-text italic leading-relaxed">A pausa é tão importante quanto o passo. Respeitar o próprio tempo e processo é um ato de autocuidado fundamental.</p>
+                </div>
+                <div class="bg-theme-beige p-8 rounded-lg shadow-sm border-l-4 border-theme-gold">
+                    <i data-lucide="quote" class="w-8 h-8 text-theme-gold mb-4 opacity-50"></i>
+                    <p class="text-theme-text italic leading-relaxed">O autoconhecimento não é um destino final, mas uma jornada contínua de descoberta, aceitação e transformação.</p>
+                </div>
+                <div class="bg-theme-beige p-8 rounded-lg shadow-sm border-l-4 border-theme-gold">
+                    <i data-lucide="quote" class="w-8 h-8 text-theme-gold mb-4 opacity-50"></i>
+                    <p class="text-theme-text italic leading-relaxed">Permita-se sentir. Suas emoções são bússolas, não fraquezas. Ouvi-las é o primeiro passo para encontrar o equilíbrio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-16 md:py-24 bg-theme-beige">
         <div class="container mx-auto px-4 md:px-6">
             <h2 class="text-3xl md:text-4xl font-playfair font-bold text-theme-green text-center mb-12 md:mb-16">Depoimentos de Pacientes</h2>
             
@@ -489,53 +540,83 @@
                 <p class="text-theme-text mt-2">Tire suas dúvidas sobre terapia e atendimento psicológico</p>
             </div>
             
-            <div class="faq-item" x-data="{ open: false }">
-                <button @click="open = !open" class="faq-question">
+            <div class="faq-item">
+                <button class="faq-question">
                     <h3>Como funciona a primeira consulta?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300" :class="{ 'transform rotate-180': open }"></i>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
                 </button>
-                <div class="faq-answer" x-show="open" x-collapse>
+                <div class="faq-answer">
                     <p>Na primeira consulta, você terá a oportunidade de falar sobre os motivos que o trouxeram à terapia. O Dr. Isaac fará perguntas para compreender melhor sua situação e, juntos, vocês definirão os objetivos do processo terapêutico. É um momento para você se sentir acolhido e entender como a terapia pode ajudar.</p>
                 </div>
             </div>
             
-            <div class="faq-item" x-data="{ open: false }">
-                <button @click="open = !open" class="faq-question">
+            <div class="faq-item">
+                <button class="faq-question">
                     <h3>Quantas sessões são necessárias?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300" :class="{ 'transform rotate-180': open }"></i>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
                 </button>
-                <div class="faq-answer" x-show="open" x-collapse>
+                <div class="faq-answer">
                     <p>O número de sessões varia de acordo com cada caso e objetivos terapêuticos. Algumas pessoas sentem melhoras em poucas sessões, enquanto outras podem precisar de um acompanhamento mais prolongado. O Dr. Isaac avaliará seu caso e fará recomendações personalizadas.</p>
                 </div>
             </div>
             
-            <div class="faq-item" x-data="{ open: false }">
-                <button @click="open = !open" class="faq-question">
+            <div class="faq-item">
+                <button class="faq-question">
                     <h3>A terapia online é eficiente?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300" :class="{ 'transform rotate-180': open }"></i>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
                 </button>
-                <div class="faq-answer" x-show="open" x-collapse>
+                <div class="faq-answer">
                     <p>Sim, a terapia online pode ser tão eficaz quanto a presencial quando realizada com um profissional qualificado e em um ambiente adequado. Estudos mostram que os resultados são equivalentes para a maioria das questões psicológicas. O importante é garantir um local privado e conexão estável.</p>
                 </div>
             </div>
             
-            <div class="faq-item" x-data="{ open: false }">
-                <button @click="open = !open" class="faq-question">
+            <div class="faq-item">
+                <button class="faq-question">
                     <h3>Como saber se preciso de terapia?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300" :class="{ 'transform rotate-180': open }"></i>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
                 </button>
-                <div class="faq-answer" x-show="open" x-collapse>
+                <div class="faq-answer">
                     <p>Alguns sinais que indicam que a terapia pode ajudar: dificuldade para lidar com emoções, problemas de relacionamento, mudanças significativas na vida, sintomas de ansiedade ou depressão, dificuldade de concentração, padrões repetitivos que causam sofrimento. Se você está em dúvida, agende uma consulta para avaliação.</p>
                 </div>
             </div>
             
-            <div class="faq-item" x-data="{ open: false }">
-                <button @click="open = !open" class="faq-question">
+            <div class="faq-item">
+                <button class="faq-question">
                     <h3>Qual a diferença entre psicólogo e psiquiatra?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300" :class="{ 'transform rotate-180': open }"></i>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
                 </button>
-                <div class="faq-answer" x-show="open" x-collapse>
+                <div class="faq-answer">
                     <p>O psicólogo é um profissional formado em Psicologia que atua com terapia e processos psicológicos. O psiquiatra é um médico especializado em saúde mental que pode prescrever medicamentos. Muitos casos se beneficiam do trabalho conjunto dos dois profissionais.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Quanto tempo dura cada sessão?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>As sessões têm duração média de 50 minutos. No caso de terapia de casal, as sessões podem durar entre 60 a 80 minutos, dependendo da abordagem e necessidades específicas do casal.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Quais são as formas de pagamento aceitas?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Aceitamos pagamentos via PIX, transferência bancária, cartão de crédito (presencialmente) e dinheiro. Para terapia online, os pagamentos são realizados preferencialmente por transferência ou PIX antes de cada sessão.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Como funciona o sigilo nas sessões?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Todas as informações compartilhadas durante as sessões são protegidas pelo sigilo profissional, conforme estabelece o Código de Ética Profissional do Psicólogo. Exceções só ocorrem em situações específicas previstas em lei, como risco de vida ou situações que envolvam crimes contra crianças e adolescentes.</p>
                 </div>
             </div>
         </div>
@@ -592,11 +673,13 @@
                 
                 <div class="mt-12">
                     <a href="https://wa.me/5511991240997" 
-                       target="_blank"
-                       class="btn-whatsapp inline-flex items-center justify-center gap-3 bg-white text-theme-green font-bold py-4 px-8 rounded-full hover:bg-theme-beige transition-all shadow-lg"
-                       id="contact-whatsapp-btn">
+                    target="_blank"
+                    class="btn-whatsapp inline-flex items-center justify-center gap-3 bg-white text-theme-green font-bold py-4 px-8 rounded-full hover:bg-theme-beige transition-all shadow-lg"
+                    id="contact-whatsapp-btn">
                         <span>Agendar Consulta via WhatsApp</span>
-                        <i data-lucide="whatsapp" class="w-6 h-6"></i>
+                        <img src="WhatsApp.svg.webp" alt="WhatsApp" class="w-6 h-6"> <!-- Ícone substituído aqui -->
+                    </a>
+                </div>
                     </a>
                 </div>
             </div>
@@ -607,7 +690,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center mb-4 md:mb-0">
-                    <img src="logo.png" alt="Dr. Isaac Bastos - Logo" class="h-10 mr-3">
+                    <img src="floral-sem-fundo.png" alt="Dr. Isaac Bastos - Logo" class="h-10 mr-3">
                     <div>
                         <p class="text-xl font-playfair font-bold">Dr. Isaac Bastos</p>
                         <p class="text-sm mt-1">Psicólogo Clínico | CRP 06/90882</p>
@@ -615,7 +698,7 @@
                 </div>
                 
                 <div class="flex flex-col items-center md:items-end">
-                    <p class="text-sm">© 2024 Dr. Isaac Bastos. Todos os direitos reservados.</p>
+                    <p class="text-sm">© 2025 Matheus Augusto. Todos os direitos reservados.</p>
                     <p class="text-xs mt-1">Desenvolvido com ❤️ para o cuidado emocional</p>
                 </div>
             </div>
@@ -726,6 +809,16 @@
                 text: "Meu nome é Angela Margherita, tenho 55 anos, sou advogada, viúva, tenho um casal de filhos, moro no Maranhão. Em 2020 tive minha vida revirada, perdi meu marido para a COVID 19. Fiquei uns 6 meses fora do ar, a ajuda psicológica, foi como uma ressuscitacão, o Dr. Isaac sempre paciente, humano, ouvinte e muito competente, soube me mostrar o quanto eu era importante e capaz de viver essa nova vida. Durante o acompanhamento cerca 1 ano e meio, tive outra perda, que nunca imaginei passar, perdi meu único irmão, confidente, leal e melhor amigo, num acidente trágico de carro. O Dr. Isaac foi muito importante para a reconstrucão da minha vida. Sou muito grata a Deus e a ele por ter me ajudado.",
                 author: "Angela Margherita",
                 location: "Maranhão - 28/08/2023"
+            },
+            {
+                text: "O Dr. Isaac me ajudou a superar um momento muito difícil de ansiedade e pânico. Sua abordagem calma e profissional fez toda a diferença no meu processo de recuperação. Hoje me sinto muito mais confiante e capaz de lidar com os desafios do dia a dia.",
+                author: "Mariana S.",
+                location: "São Paulo - 15/05/2024"
+            },
+            {
+                text: "A terapia de casal com o Dr. Isaac transformou nosso relacionamento. Aprendemos a nos comunicar de forma mais eficiente e a resolver nossos conflitos com respeito e compreensão. Recomendo muito seu trabalho!",
+                author: "Carlos e Juliana",
+                location: "Casais em terapia - 03/2024"
             }
         ];
 
@@ -877,11 +970,20 @@
             });
         });
 
-        // Adicionar funcionalidade ao FAQ com JavaScript puro
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                if (e.target.closest('.faq-question')) {
-                    item.classList.toggle('active');
+        // Adicionar funcionalidade ao FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                const icon = question.querySelector('i');
+                
+                // Alternar estado ativo
+                faqItem.classList.toggle('active');
+                
+                // Alternar ícone
+                if (faqItem.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
                 }
             });
         });
