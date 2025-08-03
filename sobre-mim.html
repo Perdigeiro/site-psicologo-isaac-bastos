@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a trajetória e a filosofia de trabalho do Dr. Isaac Bastos, psicólogo clínico com mais de 16 anos de experiência no cuidado com a saúde mental.">
+    <title>Sobre Mim - Dr. Isaac Bastos</title>
+    <link rel="icon" href="logo-aba.png" type="image/png" sizes="32x32">
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-green': '#6B8A7A',
+                        'theme-green-dark': '#5A7D6C',
+                        'theme-beige': '#F8F5F2',
+                        'theme-text': '#4A4A4A',
+                        'theme-gold': '#C6A969',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        *:focus {
+            outline: 2px solid #6B8A7A;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-white text-theme-text font-poppins">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="floral-sem-fundo.png" alt="Dr. Isaac Bastos - Logo" class="h-12 mr-3">
+                <span class="text-xl font-playfair font-bold text-theme-green-dark">Dr. Isaac Bastos</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="sobre-mim.html" class="text-theme-green-dark font-semibold transition-colors">Sobre mim</a>
+                <a href="index.html#servicos" class="hover:text-theme-green-dark transition-colors">Atendimento</a>
+                <a href="index.html#reflexoes" class="hover:text-theme-green-dark transition-colors">Reflexões</a>
+                <a href="index.html#depoimentos" class="hover:text-theme-green-dark transition-colors">Depoimentos</a>
+                <a href="index.html#faq" class="hover:text-theme-green-dark transition-colors">FAQ</a>
+                <a href="index.html#contato" class="hover:text-theme-green-dark transition-colors">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden" aria-label="Abrir menu" aria-expanded="false">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <a href="sobre-mim.html" class="block py-3 px-6 bg-theme-beige font-semibold">Sobre mim</a>
+            <a href="index.html#servicos" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Atendimento</a>
+            <a href="index.html#reflexoes" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Reflexões</a>
+            <a href="index.html#depoimentos" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Depoimentos</a>
+            <a href="index.html#faq" class="block py-3 px-6 hover:bg-theme-beige transition-colors">FAQ</a>
+            <a href="index.html#contato" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-theme-green text-white pt-32 pb-16">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-playfair font-bold">Minha Jornada e Filosofia de Cuidado</h1>
+                <p class="text-xl mt-4 max-w-3xl mx-auto">Uma trajetória dedicada a promover saúde mental e bem-estar.</p>
+            </div>
+        </section>
+
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="grid md:grid-cols-3 gap-12 items-start">
+                    <div class="md:col-span-1">
+                        <img src="perfil.png" alt="Dr. Isaac Bastos" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="md:col-span-2 text-lg leading-relaxed space-y-4">
+                        <p>Olá! É um prazer compartilhar um pouco mais sobre minha trajetória com você. Meu nome é Isaac Bastos, e minha paixão sempre foi compreender a mente humana e ajudar as pessoas a encontrarem caminhos para uma vida mais plena e equilibrada.</p>
+                        <p>Acredito que a terapia é um processo colaborativo, uma parceria onde, juntos, exploramos suas questões em um ambiente seguro, empático e livre de julgamentos. Meu compromisso é oferecer o suporte necessário para que você possa não apenas superar desafios, mas também florescer.</p>
+                    </div>
+                </div>
+
+                <div class="my-16 border-t border-gray-200"></div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-2xl font-playfair font-bold text-theme-green-dark mb-4 flex items-center gap-3"><i data-lucide="graduation-cap" class="w-7 h-7"></i>Formação Acadêmica</h2>
+                        <ul class="space-y-3 list-inside">
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-theme-green mt-1 flex-shrink-0"></i><span><strong>Mestrado em Psicologia da Saúde</strong> pela Universidade Metodista de São Paulo.</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-theme-green mt-1 flex-shrink-0"></i><span><strong>Graduação em Psicologia</strong>, com foco na abordagem clínica.</span></li>
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-theme-green mt-1 flex-shrink-0"></i><span>Participação contínua em cursos de atualização, congressos e grupos de estudo.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-playfair font-bold text-theme-green-dark mb-4 flex items-center gap-3"><i data-lucide="briefcase" class="w-7 h-7"></i>Experiência e Atuação</h2>
+                        <p class="leading-relaxed">Com mais de 16 anos de carreira, tive a oportunidade de atuar em diversos contextos, o que enriqueceu profundamente minha prática clínica. Minha experiência abrange o atendimento em clínica particular e na rede pública de saúde mental (UBSs e CAPs), lidando com uma vasta gama de demandas, como ansiedade, depressão, transtornos de humor, questões de relacionamento, luto e desenvolvimento pessoal.</p>
+                    </div>
+                </div>
+                
+                <div class="my-16 border-t border-gray-200"></div>
+
+                <div>
+                    <h2 class="text-3xl font-playfair font-bold text-theme-green-dark text-center mb-6">Minha Abordagem Terapêutica</h2>
+                    <div class="bg-theme-beige p-8 rounded-lg text-center leading-relaxed max-w-3xl mx-auto">
+                         <i data-lucide="heart-handshake" class="w-12 h-12 text-theme-gold mx-auto mb-4"></i>
+                        <p>Minha prática é integrativa, o que significa que utilizo diferentes abordagens teóricas da psicologia para adaptar o tratamento às suas necessidades individuais. O pilar do meu trabalho é a construção de um vínculo terapêutico sólido, baseado na confiança, no respeito e na escuta ativa.</p>
+                        <p class="mt-4">O objetivo é ir além do alívio dos sintomas, promovendo um entendimento mais profundo de si mesmo(a), fortalecendo sua autonomia e suas ferramentas internas para lidar com os desafios da vida de forma mais saudável e resiliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato-cta" class="py-20 bg-theme-green text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-playfair font-bold mb-4">Pronto para dar o próximo passo?</h2>
+                <p class="max-w-2xl mx-auto mb-8 text-lg">Se você sente que é o momento de cuidar da sua saúde emocional, estou aqui para ajudar. Vamos começar essa jornada juntos.</p>
+                <a href="https://wa.me/5511991240997?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20'Sobre%20Mim'%20e%20gostaria%20de%20agendar%20uma%20consulta." 
+                   target="_blank" 
+                   class="inline-flex items-center justify-center gap-3 bg-white text-theme-green font-bold py-4 px-8 rounded-full hover:bg-theme-beige transition-all shadow-lg">
+                    <span>Agendar Consulta via WhatsApp</span>
+                    <img src="WhatsApp.svg.webp" alt="WhatsApp" class="w-6 h-6">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-theme-green-dark text-white py-8">
+        <div class="container mx-auto px-6 text-center text-sm space-y-4">
+            <p>&copy; 2025 Matheus Augusto. Todos os direitos reservados.</p>
+            <p>Psicólogo Clínico | CRP 06/90882</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            lucide.createIcons();
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.classList.toggle('hidden');
+                    const menuIcon = mobileMenuButton.querySelector('i');
+                    menuIcon.setAttribute('data-lucide', isExpanded ? 'menu' : 'x');
+                    lucide.createIcons();
+                });
+            }
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
