@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Isaac Bastos - Psicólogo Clínico CRP 06/90882. Terapia individual e de casal, atendimento presencial e online para ansiedade, depressão e bem-estar em São Paulo. Agende sua consulta!">
+    <title>Dr. Isaac Bastos - Psicologia & Bem-estar</title>
+    <link rel="icon" href="logo-aba.png" type="image/png" sizes="32x32">
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-green': '#6B8A7A',
+                        'theme-green-dark': '#5A7D6C',
+                        'theme-beige': '#F8F5F2',
+                        'theme-text': '#4A4A4A',
+                        'theme-gold': '#C6A969',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .image-blob {
+            border-radius: 47% 53% 70% 30% / 30% 43% 57% 70%;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Estilos do Carrossel de Depoimentos - Ajustes para mobile */
+        .testimonial-slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+        
+        .testimonial-slide-wrapper {
+            flex-shrink: 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .testimonial-slide-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            height: auto;
+            min-height: 280px;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card blockquote {
+            flex-grow: 1;
+            font-size: 15px;
+            line-height: 1.5;
+            overflow-y: auto;
+            max-height: 150px;
+            padding-right: 5px;
+            margin: 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #prev-testimonial { left: 5px; }
+        #next-testimonial { right: 5px; }
+        
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(198, 169, 105, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dot.active, .dot:hover {
+            background-color: #C6A969;
+            transform: scale(1.2);
+        }
+        
+        .testimonial-card blockquote::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .testimonial-card blockquote::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .testimonial-card blockquote::-webkit-scrollbar-thumb {
+            background: #6B8A7A;
+            border-radius: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-slide-wrapper {
+                width: 50%;
+                padding: 0 10px;
+            }
+            
+            .testimonial-slide-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .testimonial-card {
+                min-height: 320px;
+                padding: 24px;
+            }
+            
+            .testimonial-card blockquote {
+                font-size: 16px;
+                max-height: 180px;
+            }
+            
+            .nav-btn {
+                padding: 12px;
+            }
+            
+            #prev-testimonial { left: 15px; }
+            #next-testimonial { right: 15px; }
+        }
+
+        /* Estilo para centralizar texto nos botões */
+        .btn-whatsapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+        
+        .btn-whatsapp span {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Outros estilos */
+        *:focus {
+            outline: 2px solid #6B8A7A;
+            outline-offset: 2px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .faq-section {
+            padding: 80px 0;
+            background-color: #F8F5F2;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .faq-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #5A7D6C;
+            margin-bottom: 10px;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 20px;
+            background-color: #6B8A7A;
+            color: white;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .faq-question h3 {
+            margin: 0 auto;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0 30px;
+            text-align: center;
+        }
+        
+        .faq-question i {
+            position: absolute;
+            right: 20px;
+            color: white;
+            transition: transform 0.3s ease;
+            width: 24px;
+            height: 24px;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            color: #4A4A4A;
+            line-height: 1.6;
+            background-color: #F8F5F2;
+            border-radius: 0 0 8px 8px;
+            display: none;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .sobre-img img {
+            border: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body class="bg-theme-beige text-theme-text font-poppins">
+    <a href="https://wa.me/5511991240997" 
+       class="whatsapp-float" 
+       aria-label="Agendar consulta pelo WhatsApp"
+       target="_blank"
+       id="whatsapp-float-btn">
+        <img src="WhatsApp.svg.webp" alt="WhatsApp" width="32" height="32">
+        <span>Agendar Consulta</span>
+    </a>
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="flex items-center">
+                <img src="floral-sem-fundo.png" alt="Dr. Isaac Bastos - Logo" class="h-12 mr-3">
+                <span class="text-xl font-playfair font-bold text-theme-green-dark">Dr. Isaac Bastos</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#sobre" class="hover:text-theme-green-dark transition-colors">Sobre mim</a>
+                <a href="#servicos" class="hover:text-theme-green-dark transition-colors">Atendimento</a>
+                <a href="#reflexoes" class="hover:text-theme-green-dark transition-colors">Reflexões</a>
+                <a href="#depoimentos" class="hover:text-theme-green-dark transition-colors">Depoimentos</a>
+                <a href="#faq" class="hover:text-theme-green-dark transition-colors">FAQ</a>
+                <a href="#contato" class="hover:text-theme-green-dark transition-colors">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden" aria-label="Abrir menu" aria-expanded="false">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <a href="#sobre" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Sobre mim</a>
+            <a href="#servicos" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Atendimento</a>
+            <a href="#reflexoes" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Reflexões</a>
+            <a href="#depoimentos" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Depoimentos</a>
+            <a href="#faq" class="block py-3 px-6 hover:bg-theme-beige transition-colors">FAQ</a>
+            <a href="#contato" class="block py-3 px-6 hover:bg-theme-beige transition-colors">Contato</a>
+        </div>
+    </header>
+
+<section id="inicio" class="bg-theme-beige min-h-screen flex items-center relative overflow-hidden">
+    <!-- Elemento floral decorativo -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-20">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-theme-green rounded-full mix-blend-multiply filter blur-xl"></div>
+        <div class="absolute bottom-20 right-20 w-40 h-40 bg-theme-gold rounded-full mix-blend-multiply filter blur-xl"></div>
+    </div>
+
+    <!-- Imagem floral adicional -->
+    <img src="floral.jpeg" alt="Elemento floral decorativo" class="absolute top-0 right-0 w-48 opacity-30">
+
+    <div class="container mx-auto px-6 py-16 md:py-24 relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center order-2 md:order-1">
+                <img src="perfil.png" 
+                     alt="Dr. Isaac Bastos - Psicólogo Clínico" 
+                     class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover mx-auto border-4 border-theme-gold shadow-lg object-center"
+                     style="object-position: 50% 25%"
+                     loading="eager">
+            </div>
+            <div class="text-center md:text-left order-1 md:order-2">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-playfair text-theme-gold">ISAAC BASTOS</h2>
+                    <p class="text-lg text-theme-green-dark font-medium tracking-wider">PSICÓLOGO CLÍNICO | CRP 06/90882</p>
+                </div>
+                
+                <h1 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-theme-green-dark leading-tight mb-6">
+                    Descubra-se, Equilibre-se: Protagonize sua Essência!
+                </h1>
+                
+                <p class="text-xl text-theme-text italic mb-8">
+                    Sua jornada existencial começa aqui!
+                </p>
+                
+                <div class="flex justify-center md:justify-start">
+                    <a href="https://wa.me/5511991240997?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta."
+                       target="_blank"
+                       class="btn-whatsapp inline-flex items-center justify-center bg-theme-green text-white py-4 px-8 rounded-full font-semibold hover:bg-theme-green-dark transition-all shadow-lg transform hover:scale-105 w-full md:w-auto"
+                       id="main-whatsapp-btn">
+                        <span>Agende sua Consulta</span>
+                        <img src="WhatsApp.svg.webp" alt="WhatsApp" class="w-6 h-6 ml-2">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="sobre" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Sobre mim</h2>
+                        <div class="text-theme-text leading-relaxed space-y-4">
+                            <p>Sou Isaac Bastos – Psicólogo e Mestre em Psicologia da Saúde pela Universidade Metodista de São Paulo.</p>
+                            <p>Trabalho há mais de 16 anos como Psicólogo Clínico e da Saúde, tanto na Clínica Particular como na Saúde Pública.</p>
+                            <p>Utilizo minha experiência para ajudar pacientes e familiares – de forma online – a enfrentar essas dificuldades emocionais e/ou psicológicas.</p>
+                            <p>Se você chegou até aqui, está interessada/o em acompanhamento psicológico e/ou quer saber um pouco mais sobre meu trabalho, agende uma sessão via WhatsApp. Será um prazer atendê-lo/a.</p>
+                            <p class="font-semibold">Cordialmente,<br>Psicólogo Isaac Bastos</p>
+                        </div>
+                        <div class="mt-8">
+                            <a href="sobre-mim.html" 
+                            class="inline-flex items-center gap-2 bg-theme-green-dark text-white py-3 px-6 rounded-full font-semibold hover:bg-theme-green transition-all shadow-md">
+                                <span>Saiba Mais Sobre Mim</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="sobre-mim-sem-fundo.png" 
+                            alt="Dr. Isaac Bastos em seu consultório" 
+                            class="w-full max-w-md object-contain"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-24 bg-theme-beige">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-theme-gold mb-4">Atendimento Psicológico</h2>
+                <p class="text-lg text-theme-text max-w-2xl mx-auto italic">
+                    "Conheça todas as teorias, domine todas as técnicas, mas ao tocar uma alma humana seja apenas outra alma humana." - Carl G. Jung
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="w-full h-80 md:h-96">
+                        <img src="terapia-individual.jpg" 
+                             alt="Sessão de terapia individual" 
+                             class="image-blob shadow-xl"
+                             loading="lazy">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Terapia Individual</h3>
+                        <p class="text-theme-text leading-relaxed">
+                            No nosso primeiro encontro você será convidado a falar sobre as questões que te angustiam e os motivos da sua procura por ajuda. Juntos, nós iremos compreender a sua demanda e eu irei propor um plano terapêutico focado em suas necessidades, visando sempre seu bem-estar e autonomia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:order-last w-full h-80 md:h-96">
+                        <img src="terapia-online.jpg" 
+                             alt="Sessão de terapia online" 
+                             class="image-blob shadow-xl"
+                             loading="lazy">
+                    </div>
+                    <div class="md:order-first">
+                        <h3 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Terapia Online</h3>
+                        <p class="text-theme-text leading-relaxed">
+                            A terapia online segue os mesmos princípios dos encontros presenciais, utilizando plataformas seguras como Google Meet ou Doctoralia. É fundamental que você esteja em um local privado e sem interferências para garantir o sigilo. Esta é uma excelente opção para quem reside longe do consultório ou precisa de mais flexibilidade.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="w-full h-80 md:h-96">
+                        <img src="terapia-de-casal.jpg" 
+                             alt="Sessão de terapia de casal" 
+                             class="image-blob shadow-xl"
+                             loading="lazy">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Terapia de Casal</h3>
+                        <p class="text-theme-text leading-relaxed">
+                            Na Terapia de Casal, vocês têm a chance de transformar seu relacionamento. Juntos, vamos desvendar os nós da comunicação, com total imparcialidade. Meu papel é iluminar as perspectivas de ambos, sem lados ou julgamentos, para que aprendam a arte de se ouvir e construir uma conexão mais profunda.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reflexoes" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-theme-green mb-4">Pequenas Reflexões</h2>
+                <p class="text-lg text-theme-text max-w-2xl mx-auto">
+                    Inspirações para cultivar o bem-estar e o autoconhecimento no seu dia a dia.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-theme-beige p-8 rounded-lg shadow-sm border-l-4 border-theme-gold">
+                    <i data-lucide="quote" class="w-8 h-8 text-theme-gold mb-4 opacity-50"></i>
+                    <p class="text-theme-text italic leading-relaxed">A pausa é tão importante quanto o passo. Respeitar o próprio tempo e processo é um ato de autocuidado fundamental.</p>
+                </div>
+                <div class="bg-theme-beige p-8 rounded-lg shadow-sm border-l-4 border-theme-gold">
+                    <i data-lucide="quote" class="w-8 h-8 text-theme-gold mb-4 opacity-50"></i>
+                    <p class="text-theme-text italic leading-relaxed">O autoconhecimento não é um destino final, mas uma jornada contínua de descoberta, aceitação e transformação.</p>
+                </div>
+                <div class="bg-theme-beige p-8 rounded-lg shadow-sm border-l-4 border-theme-gold">
+                    <i data-lucide="quote" class="w-8 h-8 text-theme-gold mb-4 opacity-50"></i>
+                    <p class="text-theme-text italic leading-relaxed">Permita-se sentir. Suas emoções são bússolas, não fraquezas. Ouvi-las é o primeiro passo para encontrar o equilíbrio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-16 md:py-24 bg-theme-beige">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-playfair font-bold text-theme-green text-center mb-12 md:mb-16">Depoimentos de Pacientes</h2>
+            
+            <div class="testimonial-slider-container">
+                <div id="testimonial-slider" class="testimonial-slider">
+                </div>
+                
+                <button id="prev-testimonial" class="nav-btn" aria-label="Depoimento anterior">
+                    <i data-lucide="chevron-left" class="w-4 h-4 md:w-6 md:h-6 text-theme-green-dark"></i>
+                </button>
+                <button id="next-testimonial" class="nav-btn" aria-label="Próximo depoimento">
+                    <i data-lucide="chevron-right" class="w-4 h-4 md:w-6 md:h-6 text-theme-green-dark"></i>
+                </button>
+            </div>
+            
+            <div class="dots mt-6 md:mt-8" id="testimonial-dots"></div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="faq-container">
+            <div class="faq-title">
+                <h2>Perguntas Frequentes</h2>
+                <p class="text-theme-text mt-2">Tire suas dúvidas sobre terapia e atendimento psicológico</p>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Como funciona a primeira consulta?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Na primeira consulta, você terá a oportunidade de falar sobre os motivos que o trouxeram à terapia. O Dr. Isaac fará perguntas para compreender melhor sua situação e, juntos, vocês definirão os objetivos do processo terapêutico. É um momento para você se sentir acolhido e entender como a terapia pode ajudar.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Quantas sessões são necessárias?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>O número de sessões varia de acordo com cada caso e objetivos terapêuticos. Algumas pessoas sentem melhoras em poucas sessões, enquanto outras podem precisar de um acompanhamento mais prolongado. O Dr. Isaac avaliará seu caso e fará recomendações personalizadas.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>A terapia online é eficiente?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim, a terapia online pode ser tão eficaz quanto a presencial quando realizada com um profissional qualificado e em um ambiente adequado. Estudos mostram que os resultados são equivalentes para a maioria das questões psicológicas. O importante é garantir um local privado e conexão estável.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Como saber se preciso de terapia?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Alguns sinais que indicam que a terapia pode ajudar: dificuldade para lidar com emoções, problemas de relacionamento, mudanças significativas na vida, sintomas de ansiedade ou depressão, dificuldade de concentração, padrões repetitivos que causam sofrimento. Se você está em dúvida, agende uma consulta para avaliação.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Qual a diferença entre psicólogo e psiquiatra?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>O psicólogo é um profissional formado em Psicologia que atua com terapia e processos psicológicos. O psiquiatra é um médico especializado em saúde mental que pode prescrever medicamentos. Muitos casos se beneficiam do trabalho conjunto dos dois profissionais.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Quanto tempo dura cada sessão?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>As sessões têm duração média de 50 minutos. No caso de terapia de casal, as sessões podem durar entre 60 a 80 minutos, dependendo da abordagem e necessidades específicas do casal.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Quais são as formas de pagamento aceitas?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Aceitamos pagamentos via PIX, transferência bancária, cartão de crédito (presencialmente) e dinheiro. Para terapia online, os pagamentos são realizados preferencialmente por transferência ou PIX antes de cada sessão.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <h3>Como funciona o sigilo nas sessões?</h3>
+                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Todas as informações compartilhadas durante as sessões são protegidas pelo sigilo profissional, conforme estabelece o Código de Ética Profissional do Psicólogo. Exceções só ocorrem em situações específicas previstas em lei, como risco de vida ou situações que envolvam crimes contra crianças e adolescentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 bg-theme-green text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-playfair font-bold mb-4">Vamos começar sua jornada?</h2>
+                <p class="text-xl mb-8">Entre em contato para agendar sua primeira consulta</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 text-left bg-white/10 p-8 rounded-xl">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Informações de Contato</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="phone" class="w-5 h-5 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <p class="font-medium">Telefone/WhatsApp</p>
+                                    <p>(11) 99124-0997</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <p class="font-medium">E-mail</p>
+                                    <a href="mailto:isaac@psicologo.com" class="hover:underline">isaac@psicologo.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Horário de Atendimento</h3>
+                        <div class="space-y-2">
+                            <p>Segunda a Sexta: 8h às 20h</p>
+                            <p>Sábado: 9h às 12h</p>
+                            <p>Domingo: Fechado</p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h3 class="text-xl font-semibold mb-3">Redes Sociais</h3>
+                            <div class="flex gap-4 justify-center md:justify-start">
+                                <a href="#" aria-label="Instagram do Dr. Isaac Bastos" class="hover:opacity-80 transition-opacity">
+                                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                                </a>
+                                <a href="#" aria-label="LinkedIn do Dr. Isaac Bastos" class="hover:opacity-80 transition-opacity">
+                                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <a href="https://wa.me/5511991240997" 
+                    target="_blank"
+                    class="btn-whatsapp inline-flex items-center justify-center gap-3 bg-white text-theme-green font-bold py-4 px-8 rounded-full hover:bg-theme-beige transition-all shadow-lg"
+                    id="contact-whatsapp-btn">
+                        <span>Agendar Consulta via WhatsApp</span>
+                        <img src="WhatsApp.svg.webp" alt="WhatsApp" class="w-6 h-6"> <!-- Ícone substituído aqui -->
+                    </a>
+                </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-theme-green-dark text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="floral-sem-fundo.png" alt="Dr. Isaac Bastos - Logo" class="h-10 mr-3">
+                    <div>
+                        <p class="text-xl font-playfair font-bold">Dr. Isaac Bastos</p>
+                        <p class="text-sm mt-1">Psicólogo Clínico | CRP 06/90882</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="text-sm">© 2025 Matheus Augusto. Todos os direitos reservados.</p>
+                    <p class="text-xs mt-1">Desenvolvido com ❤️ para o cuidado emocional</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "Psychologist"],
+      "name": "Dr. Isaac Bastos - Psicólogo Clínico",
+      "image": "https://www.seusite.com/perfil.png",
+      "url": "https://www.seusite.com",
+      "telephone": "+5511991240997",
+      "email": "mailto:isaac@psicologo.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Exemplo, 123",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01000-000",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "12:00"
+        }
+      ],
+      "hasMap": "https://maps.app.goo.gl/SEU_LINK_Maps",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.instagram.com/seu_instagram/",
+        "https://www.linkedin.com/in/seu_linkedin/",
+        "https://www.doctoralia.com.br/isaac-bastos/psicologo/sao-paulo"
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <script>
+        // Inicializar ícones
+        lucide.createIcons();
+
+        // Menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+            
+            // Alternar ícone do menu
+            const menuIcon = mobileMenuButton.querySelector('i');
+            if (isExpanded) {
+                menuIcon.setAttribute('data-lucide', 'menu');
+            } else {
+                menuIcon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // --- Lógica do Carrossel de Depoimentos ---
+        const testimonials = [
+            {
+                text: "Foram poucos dias de consulta mas posso dizer que é um ambiente bastante amigável, confortável e reconfortante, meus pensamentos foram ouvidos com clareza e fui bastante ajudado.",
+                author: "Anônimo",
+                location: "Paciente"
+            },
+            {
+                text: "Excelente profissional, me senti a vontade (o que não acontece normalmente), mas a forma como ele aborda a situação me deixou mais leve, cada sessão parecia que tirava um peso, eu me sentia outra. A terapia com ele me fez enxergar coisas que eu nunca tinha observado, e num espaço curto de tempo, foi diferente de outras que já fiz. Isaac está de parabéns pelo talento e dedicação no que faz. Só tenho a agradecer.",
+                author: "Anônimo",
+                location: "Paciente"
+            },
+            {
+                text: "A minha busca pelo autoconhecimento foi entender esse processo como uma contínua caminhada para dentro de mim. Tive o imenso privilégio de receber a indicação do Dr. Isaac Bastos; o mesmo de forma empática e com muito respeito me acolheu e me guiou por quase um ano de terapia. Posso afirmar que a escuta guiada pelo profissional foi uma experiência que me trouxe para perto de mim, retirou escamas e acima de tudo trouxe as claras o auto cuidado. Gratidão ao Dr. Isaac pelo acolhimento; desejo sucesso, paz interior e luz aonde fores.",
+                author: "Hiago Feitoza",
+                location: "Maceió, Alagoas - 24/02/2023"
+            },
+            {
+                text: "Meu nome é Angela Margherita, tenho 55 anos, sou advogada, viúva, tenho um casal de filhos, moro no Maranhão. Em 2020 tive minha vida revirada, perdi meu marido para a COVID 19. Fiquei uns 6 meses fora do ar, a ajuda psicológica, foi como uma ressuscitacão, o Dr. Isaac sempre paciente, humano, ouvinte e muito competente, soube me mostrar o quanto eu era importante e capaz de viver essa nova vida. Durante o acompanhamento cerca 1 ano e meio, tive outra perda, que nunca imaginei passar, perdi meu único irmão, confidente, leal e melhor amigo, num acidente trágico de carro. O Dr. Isaac foi muito importante para a reconstrucão da minha vida. Sou muito grata a Deus e a ele por ter me ajudado.",
+                author: "Angela Margherita",
+                location: "Maranhão - 28/08/2023"
+            },
+            {
+                text: "O Dr. Isaac me ajudou a superar um momento muito difícil de ansiedade e pânico. Sua abordagem calma e profissional fez toda a diferença no meu processo de recuperação. Hoje me sinto muito mais confiante e capaz de lidar com os desafios do dia a dia.",
+                author: "Mariana S.",
+                location: "São Paulo - 15/05/2024"
+            },
+            {
+                text: "A terapia de casal com o Dr. Isaac transformou nosso relacionamento. Aprendemos a nos comunicar de forma mais eficiente e a resolver nossos conflitos com respeito e compreensão. Recomendo muito seu trabalho!",
+                author: "Carlos e Juliana",
+                location: "Casais em terapia - 03/2024"
+            }
+        ];
+
+        const slider = document.getElementById('testimonial-slider');
+        const prevBtn = document.getElementById('prev-testimonial');
+        const nextBtn = document.getElementById('next-testimonial');
+        const dotsContainer = document.getElementById('testimonial-dots');
+        let currentSlideIndex = 0;
+        let autoSlideInterval;
+
+        // Função para criar o HTML de um depoimento
+        function createTestimonialCard(testimonial) {
+            return `
+                <div class="testimonial-card">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="user-circle-2" class="w-10 h-10 text-theme-green"></i>
+                    </div>
+                    <div class="flex-1 flex flex-col">
+                        <div class="flex items-center text-yellow-400 mb-2">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        </div>
+                        <blockquote class="italic text-theme-text flex-grow">
+                            "${testimonial.text}"
+                        </blockquote>
+                        <div class="mt-4 pt-4 border-t border-theme-beige">
+                            <p class="font-semibold text-theme-text">${testimonial.author}</p>
+                            <p class="text-sm text-gray-500">${testimonial.location}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Função para renderizar os slides
+        function renderSlides() {
+            slider.innerHTML = '';
+            
+            const isMobile = window.innerWidth < 768;
+            const testimonialsPerSlide = isMobile ? 1 : 2;
+
+            for (let i = 0; i < testimonials.length; i += testimonialsPerSlide) {
+                const slideWrapper = document.createElement('div');
+                slideWrapper.classList.add('testimonial-slide-wrapper');
+                
+                const slideGrid = document.createElement('div');
+                slideGrid.classList.add('testimonial-slide-grid');
+
+                for (let j = 0; j < testimonialsPerSlide; j++) {
+                    const testimonialIndex = i + j;
+                    if (testimonialIndex < testimonials.length) {
+                        slideGrid.innerHTML += createTestimonialCard(testimonials[testimonialIndex]);
+                    }
+                }
+                slideWrapper.appendChild(slideGrid);
+                slider.appendChild(slideWrapper);
+            }
+            
+            lucide.createIcons();
+            createDots();
+            goToSlide(currentSlideIndex);
+        }
+
+        // Criar indicadores (dots)
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            const totalSlides = document.querySelectorAll('.testimonial-slide-wrapper').length;
+            
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('dot');
+                dot.setAttribute('aria-label', `Ir para slide de depoimentos ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+            
+            updateDots();
+        }
+
+        // Atualizar dots ativos
+        function updateDots() {
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+
+        // Ir para slide específico
+        function goToSlide(index) {
+            const totalSlides = document.querySelectorAll('.testimonial-slide-wrapper').length;
+            currentSlideIndex = (index + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            updateDots();
+            resetAutoSlide();
+        }
+
+        // Iniciar autoplay
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                goToSlide(currentSlideIndex + 1);
+            }, 5000);
+        }
+
+        // Resetar autoplay
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Event listeners para navegação
+        prevBtn.addEventListener('click', () => goToSlide(currentSlideIndex - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentSlideIndex + 1));
+
+        // Iniciar o carrossel quando a página carrega
+        window.addEventListener('load', () => {
+            renderSlides();
+            startAutoSlide();
+        });
+
+        // Re-renderizar slides ao redimensionar
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const prevTestimonialsPerSlide = window.innerWidth < 768 ? 1 : 2;
+                renderSlides();
+                const newTestimonialsPerSlide = window.innerWidth < 768 ? 1 : 2;
+
+                if (prevTestimonialsPerSlide !== newTestimonialsPerSlide) {
+                    goToSlide(0);
+                } else {
+                    goToSlide(currentSlideIndex);
+                }
+            }, 250);
+        });
+
+        // Suave scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Adicionar funcionalidade ao FAQ
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                const icon = question.querySelector('i');
+                
+                // Alternar estado ativo
+                faqItem.classList.toggle('active');
+                
+                // Alternar ícone
+                if (faqItem.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
