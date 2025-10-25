@@ -404,7 +404,7 @@
                         <div class="text-theme-text leading-relaxed space-y-4">
                             <p>Sou Isaac Bastos – Psicólogo e Mestre em Psicologia da Saúde pela Universidade Metodista de São Paulo.</p>
                             <p>Trabalho há mais de 16 anos como Psicólogo Clínico e da Saúde, tanto na Clínica Particular como na Saúde Pública.</p>
-                            <p>Utilizo minha experiência para ajudar pacientes e familiares – de forma online – a enfrentar essas dificuldades emocionais e/ou psicológicas.</p>
+                            <p>Utilizo minha experiência para ajudar pacientes e familiares – de forma online – a enfrentar suas dificuldades emocionais e/ou psicológicas.</p>
                             <p>Se você chegou até aqui, está interessada/o em acompanhamento psicológico e/ou quer saber um pouco mais sobre meu trabalho, agende uma sessão via WhatsApp. Será um prazer atendê-lo/a.</p>
                             <p class="font-semibold">Cordialmente,<br>Psicólogo Isaac Bastos</p>
                         </div>
@@ -466,7 +466,7 @@
                     <div class="md:order-first">
                         <h3 class="text-3xl font-playfair font-bold text-theme-green-dark mb-4">Terapia Online</h3>
                         <p class="text-theme-text leading-relaxed">
-                            A terapia online segue os mesmos princípios dos encontros presenciais, utilizando plataformas seguras como Google Meet ou Doctoralia. É fundamental que você esteja em um local privado e sem interferências para garantir o sigilo. Esta é uma excelente opção para quem reside longe do consultório ou precisa de mais flexibilidade.
+                            A terapia online segue os mesmos princípios dos encontros presenciais, utilizando plataformas seguras como Google Meet ou zoom. É fundamental que você esteja em um local privado e sem interferências para garantir o sigilo. Esta é uma excelente opção para quem reside longe do consultório ou precisa de mais flexibilidade.
                         </p>
                     </div>
                 </div>
@@ -584,41 +584,11 @@
             
             <div class="faq-item">
                 <button class="faq-question">
-                    <h3>Quantas sessões são necessárias?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>O número de sessões varia de acordo com cada caso e objetivos terapêuticos. Algumas pessoas sentem melhoras em poucas sessões, enquanto outras podem precisar de um acompanhamento mais prolongado. O Dr. Isaac avaliará seu caso e fará recomendações personalizadas.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    <h3>A terapia online é eficiente?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Sim, a terapia online pode ser tão eficaz quanto a presencial quando realizada com um profissional qualificado e em um ambiente adequado. Estudos mostram que os resultados são equivalentes para a maioria das questões psicológicas. O importante é garantir um local privado e conexão estável.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
                     <h3>Como saber se preciso de terapia?</h3>
                     <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Alguns sinais que indicam que a terapia pode ajudar: dificuldade para lidar com emoções, problemas de relacionamento, mudanças significativas na vida, sintomas de ansiedade ou depressão, dificuldade de concentração, padrões repetitivos que causam sofrimento. Se você está em dúvida, agende uma consulta para avaliação.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <button class="faq-question">
-                    <h3>Qual a diferença entre psicólogo e psiquiatra?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>O psicólogo é um profissional formado em Psicologia que atua com terapia e processos psicológicos. O psiquiatra é um médico especializado em saúde mental que pode prescrever medicamentos. Muitos casos se beneficiam do trabalho conjunto dos dois profissionais.</p>
                 </div>
             </div>
 
@@ -639,16 +609,6 @@
                 </button>
                 <div class="faq-answer">
                     <p>Aceitamos pagamentos via PIX, transferência bancária, cartão de crédito (presencialmente) e dinheiro. Para terapia online, os pagamentos são realizados preferencialmente por transferência ou PIX antes de cada sessão.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question">
-                    <h3>Como funciona o sigilo nas sessões?</h3>
-                    <i data-lucide="chevron-down" class="transition-transform duration-300"></i>
-                </button>
-                <div class="faq-answer">
-                    <p>Todas as informações compartilhadas durante as sessões são protegidas pelo sigilo profissional, conforme estabelece o Código de Ética Profissional do Psicólogo. Exceções só ocorrem em situações específicas previstas em lei, como risco de vida ou situações que envolvam crimes contra crianças e adolescentes.</p>
                 </div>
             </div>
         </div>
@@ -892,20 +852,31 @@
             
             const isMobile = window.innerWidth < 768;
             const testimonialsPerSlide = isMobile ? 1 : 2;
+            const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
 
-            for (let i = 0; i < testimonials.length; i += testimonialsPerSlide) {
+            for (let slideIndex = 0; slideIndex < totalSlides; slideIndex++) {
                 const slideWrapper = document.createElement('div');
                 slideWrapper.classList.add('testimonial-slide-wrapper');
                 
                 const slideGrid = document.createElement('div');
                 slideGrid.classList.add('testimonial-slide-grid');
 
-                for (let j = 0; j < testimonialsPerSlide; j++) {
-                    const testimonialIndex = i + j;
-                    if (testimonialIndex < testimonials.length) {
-                        slideGrid.innerHTML += createTestimonialCard(testimonials[testimonialIndex]);
-                    }
+                // Calcula os índices dos depoimentos para este slide
+                const startIndex = slideIndex * testimonialsPerSlide;
+                const endIndex = Math.min(startIndex + testimonialsPerSlide, testimonials.length);
+                
+                // Adiciona os depoimentos deste slide
+                for (let i = startIndex; i < endIndex; i++) {
+                    slideGrid.innerHTML += createTestimonialCard(testimonials[i]);
                 }
+
+                // Se for o último slide e tiver apenas um depoimento no desktop
+                if (!isMobile && endIndex - startIndex === 1) {
+                    slideGrid.style.gridTemplateColumns = "1fr";
+                    slideGrid.style.maxWidth = "600px";
+                    slideGrid.style.margin = "0 auto";
+                }
+
                 slideWrapper.appendChild(slideGrid);
                 slider.appendChild(slideWrapper);
             }
@@ -951,7 +922,7 @@
         function startAutoSlide() {
             autoSlideInterval = setInterval(() => {
                 goToSlide(currentSlideIndex + 1);
-            }, 5000);
+            }, 8000);
         }
 
         // Resetar autoplay
